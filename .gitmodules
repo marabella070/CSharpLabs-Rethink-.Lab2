@@ -1,3 +1,6 @@
 [submodule "CoreAPI"]
 	path = CoreAPI
 	url = https://github.com/marabella070/CSharpLabs-Rethink-.Lab2.CoreAPI
+[submodule "WinFormsUI"]
+	path = WinFormsUI
+	url = https://github.com/marabella070/CSharpLabs-Rethink-.Lab2.WinFormsUI
