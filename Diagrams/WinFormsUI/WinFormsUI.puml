@@ -1,0 +1,158 @@
+@startuml WinFormsUI
+
+!theme reddress-darkblue
+
+'CLASSES
+
+class WinFormsUI.AboutForm
+{
+    -- Fields --
+    Basic Information:
+
+    - String groupName;
+    - String lecturerName;
+
+    UI Components:
+    
+    - IContainer components;
+    - Label generalInformaionLbl;
+    - Label projectNameLbl;
+    - Label versionLbl;
+    - Label authorLbl;
+    - Label descriptionLbl;
+    - Label disciplineLbl;
+    - Label teacherLbl;
+    - Label featuresFunctionalityLbl;
+
+    - Button okBtn;
+    - ListBox featuresFunctionalityListBox;
+    - LinkLabel projectLinkLbl;
+
+    Versioning:
+
+    - {static} UInt32 majorVersion;
+    - {static} UInt32 minorVersion;
+    - {static} UInt32 patchVersion;
+
+    -- Methods --
+    Event Handlers:
+
+    - Void okBtn_Click(Object sender, EventArgs e);
+    - Void projectLinkLbl_LinkClicked(Object sender, LinkLabelLinkClickedEventArgs e);
+
+    Lifecycle:
+
+    # Void Dispose(Boolean disposing);
+
+    Initialization:
+
+    - Void InitializeComponent();
+}
+
+class WinFormsUI.ObjectMovementSimulationForm
+{
+    -- Fields --
+    Data Collections:
+
+    - List<Drawable> drawables;
+    - List<Movable> moveables;
+    - List<ThreadController> threadControllers;
+
+    UI Components:
+
+    - IContainer components;
+    - Timer movementTimer;
+    - Timer uiStatusTimer;
+    - MenuStrip menuStrip;
+    - ToolStrip toolStrip;
+    - ListView threadStatusListView;
+    - StatusStrip statusStrip;
+    - ComboBox priorityComboBox;
+    - Panel drawingPanel;
+    - Label simulationFieldLabel;
+
+    ToolStrip Buttons & MenuItems:
+
+    - ToolStripButton toolStripStartBtn;
+    - ToolStripSeparator toolStripSeparator1;
+    - ToolStripButton toolStripPauseBtn;
+    - ToolStripSeparator toolStripSeparator2;
+    - ToolStripButton toolStripResumeBtn;
+    - ToolStripSeparator toolStripSeparator3;
+    - ToolStripButton toolStripStopBtn;
+    - ToolStripMenuItem sdfToolStripMenuItem;
+    - ToolStripMenuItem exitToolStripMenuItem;
+    - ToolStripMenuItem simulationToolStripMenuItem;
+    - ToolStripMenuItem startToolStripMenuItem;
+    - ToolStripMenuItem pauseToolStripMenuItem;
+    - ToolStripMenuItem resumeToolStripMenuItem;
+    - ToolStripMenuItem stopToolStripMenuItem;
+    - ToolStripMenuItem helpToolStripMenuItem;
+    - ToolStripMenuItem aboutToolStripMenuItem;
+
+    ListView Columns:
+
+    - ColumnHeader threadColumnHeader;
+    - ColumnHeader statusColumnHeader;
+    - ColumnHeader priorityColumnHeader;
+
+    Status Labels:
+
+    - ToolStripStatusLabel threadStatusLabel;
+
+    Constants:
+
+    - {static} UInt32 MIN_OBJECTS_COUNT;
+    - {static} UInt32 MAX_OBJECTS_COUNT;
+
+    -- Methods --
+    UI Setup:
+
+    - void InitializeComponent();
+    - void SetupMovementTimer();
+    - void SetupUiStatusTimer();
+
+    Event Handlers:
+
+    - void toolStripStartBtn_Click(Object sender, EventArgs e);
+    - void toolStripPauseBtn_Click(Object sender, EventArgs e);
+    - void toolStripResumeBtn_Click(Object sender, EventArgs e);
+    - void toolStripStopBtn_Click(Object sender, EventArgs e);
+    - void startToolStripMenuItem_Click(Object sender, EventArgs e);
+    - void pauseToolStripMenuItem_Click(Object sender, EventArgs e);
+    - void resumeToolStripMenuItem_Click(Object sender, EventArgs e);
+    - void stopToolStripMenuItem_Click(Object sender, EventArgs e);
+    - void exitToolStripMenuItem_Click(Object sender, EventArgs e);
+    - void aboutToolStripMenuItem_Click(Object sender, EventArgs e);
+    - void priorityComboBox_SelectedIndexChanged(Object sender, EventArgs e);
+    - void threadStatusListView_MouseDoubleClick(Object sender, MouseEventArgs e);
+    - void drawingPanel_Paint(Object sender, PaintEventArgs e);
+
+    State Updates:
+
+    - void UpdateThreadStatusList();
+    - void UpdateThreadStatusBar();
+
+    Simulation Control:
+
+    - void Start();
+    - void Pause();
+    - void Resume();
+    - void Stop();
+
+    Utility:
+
+    - void AddWorkshops(Func<Drawable, Movable, ThreadController, UInt32, Boolean> generator, String countDescription);
+    - void Dispose(Boolean disposing);
+
+    Timers Callback:
+
+    - void <SetupMovementTimer>b__7_0(Object sender, EventArgs e);
+    - void <SetupUiStatusTimer>b__8_0(Object sender, EventArgs e);
+}
+
+'CLASSES DEPENDECIES
+
+WinFormsUI.AboutForm <.. WinFormsUI.ObjectMovementSimulationForm
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml Models
+
+!theme reddress-darkblue
+
+'CLASSES
+
+class Lab1.Core.Models.CoordinateRange
+{
+    -- Fields --
+    - Int32 <Min>k__BackingField;
+    - Int32 <Max>k__BackingField;
+
+    -- Properties --
+    + Int32 Min { public get; unknown set; }
+    + Int32 Max { public get; unknown set; }
+}
+
+'CLASSES DEPENDECIES
+
+@enduml

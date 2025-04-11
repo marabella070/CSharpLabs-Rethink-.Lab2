@@ -1,0 +1,45 @@
+@startuml Interfaces
+
+!theme reddress-darkblue
+
+'CLASSES
+
+interface Lab1.Core.Interfaces.IDrawable
+{
+    -- Properties --
+    + Int32 X { public get; public set; }
+    + Int32 Y { public get; public set; }
+
+    -- Methods --
+    + Void Draw(Graphics g);
+}
+
+enum Lab1.Core.Interfaces.MovementFunctionType
+{
+    -- Fields --
+    + Int32 value__;
+    + {static} MovementFunctionType CycleMovement;
+    + {static} MovementFunctionType RandomMovement;
+    + {static} MovementFunctionType EmptyMovement;
+}
+
+interface Lab1.Core.Interfaces.IMovementFunction
+{
+    -- Methods --
+    + ValueTuple`2 Shift(Double t);
+}
+
+interface Lab1.Core.Interfaces.IMoveable
+{
+    -- Properties --
+    + IMovementFunction MovementFunction { public get; public set; }
+
+    -- Methods --
+    + Void Move(Double timeElapsed, Int32 boundaryX, Int32 boundaryY);
+}
+
+'CLASSES DEPENDECIES
+
+IMoveable o-- IMovementFunction
+
+@enduml

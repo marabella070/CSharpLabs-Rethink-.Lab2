@@ -1,0 +1,22 @@
+@startuml Helpers
+
+!theme reddress-darkblue
+
+'CLASSES
+
+class Lab1.Core.Helpers.RandomHelper
+{
+    -- Methods --
+    + {static} UInt32 GenerateRandomInRange(UInt32 minValue, UInt32 maxValue, String rangeName);
+    + {static} List`1 GetRandomSubset(List`1 sourceList, Int32 count);
+}
+
+class Lab1.Core.Helpers.ResourceLoader
+{
+    -- Methods --
+    + {static} Image LoadImageFromAssembly(String resourceName, String assemblyName);
+}
+
+'CLASSES DEPENDECIES
+
+@enduml

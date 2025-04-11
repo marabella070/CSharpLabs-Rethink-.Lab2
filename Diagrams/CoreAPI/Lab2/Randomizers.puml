@@ -1,0 +1,70 @@
+@startuml Randomizers
+
+!theme reddress-darkblue
+
+'CLASSES
+
+class Lab2.Core.Randomizers.AssemblyWorkshopRandomizer
+{
+    -- Fields --
+    - {static} Random random;
+
+    -- Methods --
+    - {static} ValueTuple`2 GenerateAssemblyWorkshopFields();
+    + {static} AssemblyWorkshop Generate(Nullable`1 xRange, Nullable`1 yRange);
+    + {static} IEnumerable`1 GenerateMultiple(Int32 count, Nullable`1 xRange, Nullable`1 yRange);
+}
+
+class Lab2.Core.Randomizers.ManufacturingWorkshopRandomizer
+{
+    -- Fields --
+    - {static} Random random;
+
+    -- Methods --
+    - {static} ValueTuple`2 GenerateManufacturingWorkshopFields();
+    + {static} ManufacturingWorkshop Generate(Nullable`1 xRange, Nullable`1 yRange);
+    + {static} IEnumerable`1 GenerateMultiple(Int32 count, Nullable`1 xRange, Nullable`1 yRange);
+}
+
+class Lab2.Core.Randomizers.CycleMovementRandomizer
+{
+    -- Fields --
+    - {static} Random random;
+
+    -- Methods --
+    - {static} Double GenerateRandomRadius(ValueTuple`2 formSize);
+    - {static} Double GenerateRandomAngle();
+    - {static} MovementDirection GenerateRandomDirection();
+    - {static} Double GenerateRandomSpeed();
+    + {static} CycleMovement Generate(ValueTuple`2 formSize);
+    + {static} IEnumerable`1 GenerateMultiple(Int32 count, ValueTuple`2 formSize);
+
+}
+
+class Lab2.Core.Randomizers.RandomMovementRandomizer
+{
+    -- Fields --
+    - {static} Random random;
+
+    -- Methods --
+    - {static} Double GenerateRandomSpeed(Double minSpeed, Double maxSpeed);
+    + {static} RandomMovement Generate();
+    + {static} IEnumerable`1 GenerateMultiple(Int32 count);
+}
+
+
+class Lab2.Core.Randomizers.RandomMovementFunctionRandomizer
+{
+    -- Fields --
+    - {static} Random random;
+
+    -- Methods --
+    + {static} IMovementFunction Generate(ValueTuple`2 formSize);
+    - {static} MovementFunctionType GetRandomMovementFunctionType();
+}
+
+'CLASSES DEPENDECIES
+CycleMovementRandomizer <.. RandomMovementFunctionRandomizer
+RandomMovementRandomizer <.. RandomMovementFunctionRandomizer
+
+@enduml

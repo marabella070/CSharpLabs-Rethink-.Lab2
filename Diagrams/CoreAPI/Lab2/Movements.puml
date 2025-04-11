@@ -1,0 +1,50 @@
+@startuml Movements
+
+!theme reddress-darkblue
+
+'CLASSES
+
+enum Lab2.Core.Movements.MovementDirection
+{
+    -- Fields --
+    + Int32 value__;
+    + {static} MovementDirection Clockwise;
+    + {static} MovementDirection CounterClockwise;
+}
+
+class Lab2.Core.Movements.CycleMovement
+{
+    -- Fields --
+    - Double _radius;
+    - Double <Angle>k__BackingField;
+    - MovementDirection <Direction>k__BackingField;
+    - Double <Speed>k__BackingField;
+
+    -- Properties --
+    + Double Radius { public get; public set; }
+    + Double Angle { public get; public set; }
+    + MovementDirection Direction { public get; public set; }
+    + Double Speed { public get; public set; }
+
+    -- Methods --
+    + ValueTuple`2 Shift(Double deltaTime);
+
+}
+
+class Lab2.Core.Movements.RandomMovement
+{
+    --Fields --
+    - Double <Speed>k__BackingField;
+    - {static} Random random;
+
+    -- Properties --
+    + Double Speed { public get; public set; }
+
+    -- Methods --
+    + ValueTuple`2 Shift(Double deltaTime);
+}
+
+'CLASSES DEPENDECIES
+CycleMovement o-- MovementDirection
+
+@enduml

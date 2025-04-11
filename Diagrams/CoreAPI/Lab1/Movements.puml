@@ -1,0 +1,15 @@
+@startuml Movements
+
+!theme reddress-darkblue
+
+'CLASSES
+
+class Lab1.Core.Movements.EmptyMovement
+{
+    -- Methods --
+    public ValueTuple`2 Shift(Double t);
+}
+
+'CLASSES DEPENDECIES
+
+@enduml

@@ -1,0 +1,77 @@
+@startuml Models
+
+!theme reddress-darkblue
+
+'CLASSES
+
+class Lab2.Core.Models.AssemblyWorkshop
+{
+    -- Fields --
+    - UInt32 <AssemblyLines>k__BackingField;
+    - Boolean <UsesAutomation>k__BackingField;
+    - {static} Image _image;
+    - {static} String _imageResourcePath;
+    + {static} UInt32 MIN_LINES_NUMBER;
+    + {static} UInt32 MAX_LINES_NUMBER;
+
+    -- Properties --
+    - {static} String ImageResourcePath { private get; unknown set; }
+    + UInt32 AssemblyLines { public get; public set; }
+    + Boolean UsesAutomation { public get; public set; }
+
+    -- Methods --
+    + Void Draw(Graphics g);
+    + String GetAssemblyWorkshopInfo();
+    + String GetShortAssemblyWorkshopInfo();
+    + Void ShowInfo(Action`1 output);
+    + Void ShowShortInfo(Action`1 output);
+    + String ToString();
+    - Int32 CoreAPI.Core.Interfaces.IDrawable.get_X();
+    - Void CoreAPI.Core.Interfaces.IDrawable.set_X(Int32 value);
+    - Int32 CoreAPI.Core.Interfaces.IDrawable.get_Y();
+    - Void CoreAPI.Core.Interfaces.IDrawable.set_Y(Int32 value);
+}
+
+class Lab2.Core.Models.ManufacturingWorkshop
+{
+    -- Fields --
+    - UInt32 <MachinesCount>k__BackingField;
+    - Boolean <HasHazardousMaterials>k__BackingField;
+    - {static} Image _image;
+    - {static} String _imageResourcePath;
+    + {static} UInt32 MIN_MACHINES_NUMBER;
+    + {static} UInt32 MAX_MACHINES_NUMBER;
+
+    -- Properties --
+    private {static} String ImageResourcePath { private get; unknown set; }
+    + UInt32 MachinesCount { public get; public set; }
+    + Boolean HasHazardousMaterials { public get; public set; }
+
+    -- Methods --
+    + Void Draw(Graphics g);
+    + String GetManufacturingWorkshopInfo();
+    + String GetShortManufacturingWorkshopInfo();
+    + Void ShowInfo(Action`1 output);
+    + Void ShowShortInfo(Action`1 output);
+    + String ToString();
+    - Int32 CoreAPI.Core.Interfaces.IDrawable.get_X();
+    - Void CoreAPI.Core.Interfaces.IDrawable.set_X(Int32 value);
+    - Int32 CoreAPI.Core.Interfaces.IDrawable.get_Y();
+    - Void CoreAPI.Core.Interfaces.IDrawable.set_Y(Int32 value);
+}
+
+enum Lab2.Core.Models.ThreadExecutionState
+{
+    -- Fields --
+    + Int32 value__;
+    + {static} ThreadExecutionState NotStarted;
+    + {static} ThreadExecutionState Running;
+    + {static} ThreadExecutionState Paused;
+    + {static} ThreadExecutionState WaitingToPause;
+    + {static} ThreadExecutionState Resuming;
+    + {static} ThreadExecutionState Stopped;
+}
+
+'CLASSES DEPENDECIES
+
+@enduml

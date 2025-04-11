@@ -1,0 +1,16 @@
+@startuml Core
+
+!include CoreAPI/CoreAPI.puml
+!include WinFormsUI/WinFormsUI.puml
+
+'SHARED DEPENDENCIES
+
+Lab2.Core.Controllers.WorkshopThreadController --o WinFormsUI.ObjectMovementSimulationForm
+
+Lab2.Core.Randomizers.AssemblyWorkshopRandomizer <.. WinFormsUI.ObjectMovementSimulationForm
+
+Lab2.Core.Randomizers.ManufacturingWorkshopRandomizer <.. WinFormsUI.ObjectMovementSimulationForm
+
+Lab2.Core.Randomizers.RandomMovementFunctionRandomizer <.. WinFormsUI.ObjectMovementSimulationForm
+
+@enduml

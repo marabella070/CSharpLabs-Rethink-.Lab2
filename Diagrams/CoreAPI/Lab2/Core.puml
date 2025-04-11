@@ -1,0 +1,20 @@
+@startuml Core
+
+!include Controllers.puml
+!include Models.puml
+!include Movements.puml
+!include Randomizers.puml
+
+'SHARED DEPENDENCIES
+
+Lab2.Core.Models.AssemblyWorkshop <.. Lab2.Core.Randomizers.AssemblyWorkshopRandomizer
+
+Lab2.Core.Models.ManufacturingWorkshop <.. Lab2.Core.Randomizers.ManufacturingWorkshopRandomizer
+
+Lab2.Core.Controllers.WorkshopThreadController o-- Lab2.Core.Models.ThreadExecutionState
+
+Lab2.Core.Movements.CycleMovement <.. Lab2.Core.Randomizers.CycleMovementRandomizer
+
+Lab2.Core.Movements.RandomMovement <.. Lab2.Core.Randomizers.RandomMovementRandomizer
+
+@enduml

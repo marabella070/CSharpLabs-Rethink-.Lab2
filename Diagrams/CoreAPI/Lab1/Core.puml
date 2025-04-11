@@ -1,0 +1,12 @@
+@startuml Core
+
+!include Helpers.puml
+!include Interfaces.puml
+!include Models.puml
+!include Movements.puml
+
+'SHARED DEPENDENCIES
+
+Lab1.Core.Interfaces.IMovementFunction <|-- Lab1.Core.Movements.EmptyMovement
+
+@enduml

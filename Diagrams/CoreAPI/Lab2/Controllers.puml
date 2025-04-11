@@ -1,0 +1,36 @@
+@startuml Controllers
+
+!theme reddress-darkblue
+
+'CLASSES
+
+class Lab2.Core.Controllers.WorkshopThreadController
+{
+    -- Fields --
+    -IMoveable moveable;
+    -Int32 formWidth;
+    -Int32 formHeight;
+    -Double interval;
+    -ThreadExecutionState state;
+    -Thread thread;
+    -String <ThreadName>k__BackingField;
+    -Boolean running;
+    -Boolean paused;
+    -Object pauseLock;
+
+    -- Properties --
+    +ThreadExecutionState State { public get; unknown set; }
+    +ThreadPriority Priority { public get; public set; }
+    +String ThreadName { public get; private set; }
+
+    -- Methods --
+    +Void Start();
+    +Void Pause();
+    +Void Resume();
+    +Void Stop();
+    -Void Loop();
+}
+
+'CLASSES DEPENDECIES
+
+@enduml

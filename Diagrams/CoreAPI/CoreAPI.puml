@@ -1,0 +1,37 @@
+@startuml Core
+
+!include Lab1/Core.puml
+!include Lab2/Core.puml
+
+'SHARED DEPENDENCIES
+Lab1.Core.Randomizers.RandomHelper <.. Lab2.Core.Randomizers.AssemblyWorkshopRandomizer
+
+Lab1.Core.Randomizers.RandomHelper <.. Lab2.Core.Randomizers.ManufacturingWorkshopRandomizer
+
+Lab1.Core.Helpers.ResourceLoader <.. Lab2.Core.Models.AssemblyWorkshop
+
+Lab1.Core.Helpers.ResourceLoader <.. Lab2.Core.Models.ManufacturingWorkshop
+
+Lab1.Core.Interfaces.IDrawable <|-- Lab2.Core.Models.AssemblyWorkshop
+
+Lab1.Core.Interfaces.IDrawable <|-- Lab2.Core.Models.ManufacturingWorkshop
+
+Lab1.Core.Interfaces.MovementFunctionType <.. Lab2.Core.Randomizers.RandomMovementFunctionRandomizer
+
+Lab1.Core.Interfaces.IMovementFunction <|-- Lab2.Core.Movements.CycleMovement
+
+Lab1.Core.Interfaces.IMovementFunction <|-- Lab2.Core.Movements.RandomMovement
+
+Lab1.Core.Interfaces.IMoveable --o Lab2.Core.Controllers.WorkshopThreadController
+
+Lab1.Core.Interfaces.IMoveable <|-- Lab2.Core.Models.AssemblyWorkshop
+
+Lab1.Core.Interfaces.IMoveable <|-- Lab2.Core.Models.ManufacturingWorkshop
+
+Lab1.Core.Movements.EmptyMovement <.. Lab2.Core.Randomizers.RandomMovementFunctionRandomizer
+
+Lab1.Core.Models.CoordinateRange <.. Lab2.Core.Randomizers.AssemblyWorkshopRandomizer
+
+Lab1.Core.Models.CoordinateRange <.. Lab2.Core.Randomizers.ManufacturingWorkshopRandomizer
+
+@enduml
